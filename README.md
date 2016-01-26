@@ -1,4 +1,4 @@
-interactivespaces-dependencies
+smartspaces-dependencies
 ==============================
 
-Dependencies for building Interactive Spaces so they are found in one location.
+Dependencies for building Smart Spaces so they are found in one location.
