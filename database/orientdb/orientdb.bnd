@@ -1,0 +1,39 @@
+Bundle-SymbolicName: orientdb-complete
+Bundle-Version: 2.2.31
+
+Export-Package: com.orientechnologies.*;version="2.2.31",
+                *
+
+Private-Package: com.sun.jna.*,
+                 com.fasterxml.*,
+		 com.googlecode.concurrentlinkedhashmap.*,
+		 org.xerial.snappy.*
+
+Import-Package: *;version="0";resolution:=optional
+
+Bundle-NativeCode: com/sun/jna/win32-x86/jnidispatch.dll; processor=x86;osname=win32, \
+                   com/sun/jna/win32-x86-64/jnidispatch.dll; processor=x86-64;osname=win32, \
+		   com/sun/jna/win32-x86/jnidispatch.dll; processor=x86;osname=win, \
+		   com/sun/jna/win32-x86-64/jnidispatch.dll; processor=x86-64;osname=win, \
+		   com/sun/jna/sunos-x86-64/libjnidispatch.so; processor=x86-64;osname=sunos, \
+		   com/sun/jna/sunos-sparc/libjnidispatch.so; processor=sparc;osname=sunos, \
+		   com/sun/jna/aix-ppc/libjnidispatch.a; processor=ppc;osname=aix, \
+		   com/sun/jna/aix-ppc64/libjnidispatch.a; processor=ppc64;osname=aix,  \
+		   com/sun/jna/linux-ppc/libjnidispatch.so; processor=ppc;osname=linux, \
+		   com/sun/jna/linux-ppc64le/libjnidispatch.so; processor=ppc64le;osname=linux, \
+		   com/sun/jna/linux-x86/libjnidispatch.so; processor=x86;osname=linux, \
+		   com/sun/jna/linux-x86-64/libjnidispatch.so; processor=x86-64;osname=linux, \
+		   com/sun/jna/linux-arm/libjnidispatch.so; processor=arm;osname=linux, \
+		   com/sun/jna/linux-armel/libjnidispatch.so; processor=armel;osname=linux, \
+		   com/sun/jna/linux-aarch64/libjnidispatch.so; processor=aarch64;osname=linux, \
+		   com/sun/jna/linux-mips64el/libjnidispatch.so; processor=mips64el;osname=linux, \
+		   com/sun/jna/linux-s390x/libjnidispatch.so; processor=S390x;osname=linux,  \
+		   com/sun/jna/freebsd-x86/libjnidispatch.so; processor=x86;osname=freebsd, \
+		   com/sun/jna/freebsd-x86-64/libjnidispatch.so; processor=x86-64;osname=freebsd, \
+		   com/sun/jna/openbsd-x86/libjnidispatch.so; processor=x86;osname=openbsd, \
+		   com/sun/jna/openbsd-x86-64/libjnidispatch.so; processor=x86-64;osname=openbsd,  \
+		   com/sun/jna/darwin/libjnidispatch.jnilib; osname=macosx;processor=x86;processor=x86-64;processor=ppc 
+
+-classpath build/libs/orientdb-complete-2.2.31.jar
+-includeresource @build/libs/orientdb-complete-2.2.31.jar!/META-INF/services/*
+-output build/libs/orientdb-complete-osgi-2.2.31.jar
