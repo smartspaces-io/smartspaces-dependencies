@@ -1,0 +1,79 @@
+/*
+ * Copyright (C) 2019 Keith M. Hughes
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
+  }
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+apply plugin: 'maven'
+
+ext {
+  bundleName = 'orientdb-complete'
+  bundleVersion = '3.0.20'
+}
+
+group = 'io.smartspaces'
+archivesBaseName=bundleName + "-osgi"
+version = ext.bundleVersion
+
+dependencies {
+  runtime('com.orientechnologies:orientdb-core:3.0.20')
+  runtime('com.orientechnologies:orientdb-client:3.0.20')
+  runtime('com.orientechnologies:orientdb-server:3.0.20') {
+    exclude group: 'javax.mail', module: 'mail'
+    transitive = false
+  }
+  runtime('com.orientechnologies:orientdb-tools:3.0.20')
+}
+
+shadowJar {
+   baseName = bundleName
+   classifier = null
+   version = bundleVersion
+
+   mergeServiceFiles()
+
+}
+
+task runBnd(dependsOn: ':shadowJar', type:Exec) {
+  commandLine 'bnd', 'orientdb.bnd'
+}
+  
+repositories {
+  mavenLocal()
+  mavenCentral()
+  maven {
+    url 'https://oss.sonatype.org/content/repositories/snapshots'
+  }
+  maven {
+    url 'http://repo.spring.io/libs-release-remote'
+  }
+  jcenter()
+
+  maven {
+    url 'https://artifacts.alfresco.com/nexus/content/repositories/public'
+  }
+    
+  maven {
+    url "https://eng.inhabitech.com:8082/repository/smartspaces-io"
+  }
+}
