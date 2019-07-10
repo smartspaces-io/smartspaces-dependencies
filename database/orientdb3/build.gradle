@@ -29,6 +29,7 @@ apply plugin: 'maven'
 ext {
   bundleName = 'orientdb-complete'
   bundleVersion = '3.0.20'
+  orientdbVersion = '3.0.20'
 }
 
 group = 'io.smartspaces'
@@ -36,13 +37,15 @@ archivesBaseName=bundleName + "-osgi"
 version = ext.bundleVersion
 
 dependencies {
-  runtime('com.orientechnologies:orientdb-core:3.0.20')
-  runtime('com.orientechnologies:orientdb-client:3.0.20')
-  runtime('com.orientechnologies:orientdb-server:3.0.20') {
+  runtime("com.orientechnologies:orientdb-core:${project.ext.orientdbVersion}")
+  runtime("com.orientechnologies:orientdb-client:${project.ext.orientdbVersion}")
+  runtime("com.orientechnologies:orientdb-server:${project.ext.orientdbVersion}") {
     exclude group: 'javax.mail', module: 'mail'
     transitive = false
   }
-  runtime('com.orientechnologies:orientdb-tools:3.0.20')
+  runtime("com.orientechnologies:orientdb-tools:${project.ext.orientdbVersion}")
+  runtime("com.orientechnologies:orientdb-tools:${project.ext.orientdbVersion}")
+  runtime("com.orientechnologies:orientdb-object:${project.ext.orientdbVersion}")
 }
 
 shadowJar {

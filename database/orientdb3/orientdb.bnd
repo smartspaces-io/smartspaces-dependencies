@@ -1,16 +1,16 @@
 Bundle-SymbolicName: orientdb-complete
 Bundle-Version: 3.0.20
 
-Export-Package: com.orientechnologies.*;version="3.0.20",
+Export-Package: com.orientechnologies.*;version="3.0.20", \
                 *
 
-Private-Package: com.sun.jna.*,
-                 com.fasterxml.*,
-		 com.googlecode.concurrentlinkedhashmap.*,
-		 org.xerial.snappy.*,
-                 net.jpountz.*,
-                 org.apache.commons.lang.*,
-                 javax.activation.*,
+Private-Package: com.sun.jna.*, \
+                 com.fasterxml.*, \
+		 com.googlecode.concurrentlinkedhashmap.*, \
+		 org.xerial.snappy.*, \
+                 net.jpountz.*, \
+                 org.apache.commons.lang.*, \
+                 javax.activation.*, \
                  javax.xml.*
 
 Import-Package: *;version="0";resolution:=optional
