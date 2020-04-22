@@ -2,6 +2,7 @@ Bundle-SymbolicName: orientdb-complete
 Bundle-Version: 3.0.20
 
 Export-Package: com.orientechnologies.*;version="3.0.20", \
+                com.tinkerpop.blueprints.impls.orient.*;version="3.0.20", \
                 *
 
 Private-Package: com.sun.jna.*, \

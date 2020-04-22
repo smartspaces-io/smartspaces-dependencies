@@ -46,6 +46,7 @@ dependencies {
   runtime("com.orientechnologies:orientdb-tools:${project.ext.orientdbVersion}")
   runtime("com.orientechnologies:orientdb-tools:${project.ext.orientdbVersion}")
   runtime("com.orientechnologies:orientdb-object:${project.ext.orientdbVersion}")
+  runtime("com.orientechnologies:orientdb-graphdb:${project.ext.orientdbVersion}")
 }
 
 shadowJar {
